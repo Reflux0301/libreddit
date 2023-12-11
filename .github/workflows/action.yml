@@ -10,6 +10,10 @@ on:
 jobs:
   build-and-push-image:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write, read
+      metadata: read
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -26,4 +30,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/reflux0301/nitter:latest
+          tags: ghcr.io/reflux0301/libreddit:latest
